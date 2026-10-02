@@ -1,98 +1,96 @@
 # 24124966_calculator_frontend
 
-前后端分离计算器系统 —— **前端项目**
+Front-End and Back-End Separation Calculator System — **Frontend Project**
 
-## 项目介绍
+## Project Introduction
 
-本项目是《软件工程》第一次作业"前后端分离计算器系统"的前端部分。
+This is the frontend part of the "Front-End and Back-End Separation Calculator System", the first assignment of the Software Engineering course.
 
-前端负责：
-- 计算器界面展示
-- 按钮交互与表达式输入
-- 将表达式通过 HTTP API 发送给后端
-- 展示后端返回的计算结果
-- 展示计算历史、发送历史删除请求
+The front end is responsible for:
+- Calculator interface display
+- Button interaction and expression input
+- Sending expressions to the backend via HTTP API
+- Displaying the calculation results returned by the backend
+- Displaying calculation history and sending history deletion requests
 
-**前端不参与任何计算**：所有计算均由后端完成，前端仅负责
-收集用户输入、发送请求、展示结果，符合"前后端分离"的作业要求。
+**The front end does not perform any calculation**: all calculations are done by the backend. The front end only collects user input, sends requests, and displays results, which satisfies the "front-end and back-end separation" requirement.
 
-## 技术栈
+## Tech Stack
 
-- HTML5 + CSS3 + JavaScript（原生，无任何构建工具、无框架）
-- 通过浏览器原生 `fetch` 与后端通信
+- HTML5 + CSS3 + JavaScript (native, no build tools, no framework)
+- Communicates with the backend using the browser-native `fetch` API
 
-## 运行环境
+## Runtime Environment
 
-- 任意现代浏览器（Chrome / Edge / Firefox / Safari）
-- 操作系统：Windows / macOS / Linux 均可
-- 无需安装任何依赖
+- Any modern browser (Chrome / Edge / Firefox / Safari)
+- OS: Windows / macOS / Linux
+- No dependencies to install
 
-## 安装方法
+## Installation
 
-本前端项目为纯静态页面，**无需安装**。将整个目录下载到本地即可。
+This frontend project is a set of static pages, **no installation required**. Just download the whole directory.
 
-## 启动方法
+## How to Start
 
-### 方式一：直接打开（最简单）
+### Way 1: Open Directly (Simplest)
 
-双击 `index.html`，浏览器会直接打开计算器页面。
+Double-click `index.html`, and the calculator page opens in the browser.
 
-### 方式二：本地静态服务器（可选）
+### Way 2: Local Static Server (Optional)
 
 ```bash
-# 在前端项目目录下执行（使用 Python 自带模块）
+# Run this in the frontend project directory (using Python's built-in module)
 python -m http.server 8080
 ```
 
-然后访问 `http://127.0.0.1:8080`。
+Then visit `http://127.0.0.1:8080`.
 
-> 无论哪种方式，都需要**先启动后端服务**才能完成计算。
+> In both ways, the **backend service must be running** to perform calculations.
 
-## 配置说明
+## Configuration
 
-后端服务地址在 `calculator.js` 顶部配置：
+The backend address is configured at the top of `calculator.js`:
 
 ```javascript
 const API_BASE = "https://zlin05.pythonanywhere.com";
 ```
 
-- 本地开发时：可改为 `http://127.0.0.1:5000`（后端在本地运行）
-- 当前默认使用已部署的公网后端（PythonAnywhere）
+- Default: uses the deployed public backend (PythonAnywhere)
+- Local development: change it to `http://127.0.0.1:5000` when the backend runs locally
 
-## 前后端连接方法
+## How the Front End Connects to the Back End
 
-前端通过 HTTP 请求调用后端接口：
+The front end calls the backend through HTTP requests:
 
-| 功能       | 请求                     |
-| ---------- | ------------------------ |
-| 计算       | `POST /api/calculate`    |
-| 获取历史   | `GET /api/history`       |
-| 删除单条   | `DELETE /api/history/{id}` |
-| 清空历史   | `DELETE /api/history`    |
+| Feature | Request |
+| --- | --- |
+| Calculate | `POST /api/calculate` |
+| Get history | `GET /api/history` |
+| Delete one record | `DELETE /api/history/{id}` |
+| Clear history | `DELETE /api/history` |
 
-后端项目见 `24124966_calculator_backend` 仓库，API 详细文档见后端 README.md。
+See the `24124966_calculator_backend` repository for the detailed API documentation.
 
-## 功能说明
+## Features
 
-- 基础四则运算：加（+）、减（-）、乘（×）、除（÷）
-- 复合表达式：支持运算符优先级、括号、一元正负号（如 -5、3*-2）、小数
-- 计算历史：成功后自动保存到后端数据库，刷新页面不丢失
-- 删除历史：可删除单条记录，也可一键清空
-- 键盘输入：支持数字键、运算符、Enter 计算、Backspace 退格、Esc 清空
-- 错误提示：非法表达式、除零、后端不可用等均有明确提示
+- Basic arithmetic: addition (+), subtraction (-), multiplication (×), division (÷)
+- Compound expressions: operator precedence, parentheses, unary signs (e.g., -5, 3*-2), decimals
+- Calculation history: automatically saved to the backend database after each successful calculation; not lost after refreshing the page
+- Delete history: delete a single record, or clear all at once
+- Keyboard input: number keys, operators, Enter to calculate, Backspace to delete, Esc to clear
+- Error messages: clear feedback for invalid expressions, division by zero, backend unavailable, etc.
 
-## 目录结构
+## Directory Structure
 
 ```
 24124966_calculator_frontend/
-├── index.html       # 计算器页面
-├── style.css        # 页面样式
-├── calculator.js    # 交互逻辑与后端通信
-├── README.md        # 项目说明
-└── codestyle.md     # 代码规范
+├── index.html       # Calculator page
+├── style.css        # Page styles
+├── calculator.js    # Interaction logic and backend communication
+├── README.md        # Project documentation
+└── codestyle.md     # Code style guide
 ```
 
-## 代码规范
+## Code Style
 
-代码遵循 [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)，
-详见 [codestyle.md](codestyle.md)。
+The code follows the [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html). See [codestyle.md](codestyle.md).

@@ -1,58 +1,57 @@
-# 前端代码规范（Code Style）
+# Frontend Code Style
 
-> **规范来源**：[Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
-> （Google 官方 JavaScript 代码风格标准）
+> **Source**: [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
+> (Google's official JavaScript code style standard)
 
-本项目前端 JavaScript 代码遵循 Google JavaScript Style Guide，
-以下列出与本项目直接相关的核心约定。
+The frontend JavaScript code in this project follows the Google JavaScript Style Guide. Below are the core conventions relevant to this project.
 
-## 1. 缩进
+## 1. Indentation
 
-- 使用 **2 个空格** 缩进，不使用 Tab。
+- Use **2 spaces** per indentation level. Tabs are not allowed.
 
-## 2. 分号
+## 2. Semicolons
 
-- 每条语句末尾以分号 `;` 结束，不使用 ASI 自动分号插入。
+- End every statement with a semicolon `;`; do not rely on automatic semicolon insertion (ASI).
 
-## 3. 引号
+## 3. Quotes
 
-- 字符串优先使用**单引号** `'...'`，避免不必要的转义。
+- Prefer **single quotes** `'...'` for strings to avoid unnecessary escapes.
 
-## 4. 命名规范
+## 4. Naming Conventions
 
-| 对象     | 命名风格       | 示例                 |
-| -------- | -------------- | -------------------- |
-| 变量     | 小驼峰         | `currentExpression`  |
-| 函数     | 小驼峰         | `loadHistory()`      |
-| 常量     | 全大写+下划线  | `API_BASE`           |
-| DOM 变量 | 小驼峰 + El 后缀 | `historyListEl`    |
+| Object | Style | Example |
+| --- | --- | --- |
+| Variables | lowerCamelCase | `currentExpression` |
+| Functions | lowerCamelCase | `loadHistory()` |
+| Constants | UPPER_CASE with underscores | `API_BASE` |
+| DOM variables | lowerCamelCase + `El` suffix | `historyListEl` |
 
-## 5. 空白
+## 5. Whitespace
 
-- 运算符两侧各留一个空格：`a + b`
-- 逗号后跟一个空格：`func(a, b)`
-- 控制语句关键字后留一个空格：`if (cond)`、`for (...)`
+- One space around operators: `a + b`
+- One space after commas: `func(a, b)`
+- One space after control keywords: `if (cond)`, `for (...)`
 
-## 6. 函数
+## 6. Functions
 
-- 优先使用函数声明，明确函数用途。
-- 每个函数在定义前用注释说明其职责。
-- 避免函数过长，单一职责。
+- Prefer function declarations and make the purpose of each function clear.
+- Add a comment before each function describing its responsibility.
+- Keep functions short and single-purpose.
 
-## 7. 字符串拼接
+## 7. String Concatenation
 
-- 优先使用模板字符串（反引号）：`` `已删除记录 #${id}` ``
+- Prefer template literals (backticks): `` `Record #${id} deleted` ``
 
-## 8. 异步处理
+## 8. Asynchronous Handling
 
-- 使用 `async/await` 处理网络请求，配合 `try/catch` 捕获错误。
-- 网络请求失败时必须在界面上给出用户可见的错误提示。
+- Use `async/await` for network requests, wrapped in `try/catch` for error handling.
+- Always show user-visible error messages when a network request fails.
 
-## 9. 注释
+## 9. Comments
 
-- 使用中文注释说明代码逻辑，关键函数必须有注释。
+- Use English comments to explain logic; every key function must have a comment.
 
-## 10. 浏览器兼容
+## 10. Browser Compatibility
 
-- 使用标准化的原生 API（`fetch`、`addEventListener` 等），
-  不依赖特定框架或构建工具。
+- Use standard native APIs (`fetch`, `addEventListener`, etc.).
+- Do not rely on specific frameworks or build tools.

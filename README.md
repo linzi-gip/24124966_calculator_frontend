@@ -53,11 +53,11 @@ python -m http.server 8080
 后端服务地址在 `calculator.js` 顶部配置：
 
 ```javascript
-const API_BASE = "http://127.0.0.1:5000";
+const API_BASE = "https://zlin05.pythonanywhere.com";
 ```
 
-- 本地运行：保持默认即可
-- 部署到公网后：改成公网后端地址，如 `https://xxx.xx/api` 对应的根地址
+- 本地开发时：可改为 `http://127.0.0.1:5000`（后端在本地运行）
+- 当前默认使用已部署的公网后端（PythonAnywhere）
 
 ## 前后端连接方法
 

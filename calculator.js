@@ -15,7 +15,8 @@
    ============================================================ */
 
 // 后端服务地址（部署到公网后改成对应地址即可）
-const API_BASE = "http://127.0.0.1:5000";
+// 本地开发可用 http://127.0.0.1:5000；当前已部署到 PythonAnywhere：
+const API_BASE = "https://zlin05.pythonanywhere.com";
 
 // 页面元素
 const expressionEl = document.getElementById("expression");

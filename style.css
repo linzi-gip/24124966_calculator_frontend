@@ -1,0 +1,259 @@
+/* ============================================================
+   前后端分离计算器 - 样式表
+   设计原则：界面清晰、可用，不过度追求视觉效果
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1f2329;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 24px 12px;
+}
+
+.app {
+    width: 100%;
+    max-width: 420px;
+}
+
+.title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #8a919f;
+    margin-bottom: 16px;
+}
+
+/* ---------------- 计算器 ---------------- */
+.calculator {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+}
+
+.display {
+    background: #f7f8fa;
+    border-radius: 10px;
+    padding: 14px 16px;
+    min-height: 96px;
+    margin-bottom: 14px;
+    text-align: right;
+    word-break: break-all;
+}
+
+.expression {
+    font-size: 20px;
+    color: #4e5969;
+    min-height: 28px;
+}
+
+.result {
+    font-size: 30px;
+    font-weight: 600;
+    color: #1d2129;
+    margin-top: 4px;
+}
+
+.error-msg {
+    font-size: 14px;
+    color: #e2231a;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+/* ---------------- 按钮区 ---------------- */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    height: 56px;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.05s;
+    user-select: none;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn-num {
+    background: #f2f3f5;
+    color: #1d2129;
+}
+
+.btn-num:hover {
+    background: #e5e6eb;
+}
+
+.btn-op {
+    background: #e8f3ff;
+    color: #165dff;
+}
+
+.btn-op:hover {
+    background: #d4e6ff;
+}
+
+.btn-func {
+    background: #fef0e8;
+    color: #b2540a;
+}
+
+.btn-func:hover {
+    background: #fde3d2;
+}
+
+.btn-equal {
+    background: #165dff;
+    color: #ffffff;
+}
+
+.btn-equal:hover {
+    background: #0e42d2;
+}
+
+.hint {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #8a919f;
+    text-align: center;
+}
+
+/* ---------------- 历史记录 ---------------- */
+.history {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.history-header h2 {
+    font-size: 16px;
+}
+
+.btn-clear-all {
+    background: #f2f3f5;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #e2231a;
+    cursor: pointer;
+}
+
+.btn-clear-all:hover {
+    background: #e5e6eb;
+}
+
+.history-list {
+    list-style: none;
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+.history-empty {
+    text-align: center;
+    color: #8a919f;
+    padding: 24px 0;
+    font-size: 14px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-bottom: 1px solid #f2f3f5;
+}
+
+.history-item:hover {
+    background: #f7f8fa;
+}
+
+.history-info {
+    flex: 1;
+    margin-right: 10px;
+    min-width: 0;
+}
+
+.history-expr {
+    font-size: 14px;
+    color: #4e5969;
+    word-break: break-all;
+}
+
+.history-result {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2129;
+    margin-top: 2px;
+}
+
+.history-time {
+    font-size: 11px;
+    color: #a9aeb8;
+    margin-top: 2px;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: #8a919f;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.btn-delete:hover {
+    color: #e2231a;
+    background: #fdecec;
+}
+
+/* ---------------- 状态提示 ---------------- */
+.status {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 13px;
+    color: #86909c;
+    min-height: 20px;
+}
+
+.status.error {
+    color: #e2231a;
+}
+
+.status.ok {
+    color: #00b42a;
+}

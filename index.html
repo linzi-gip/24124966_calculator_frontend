@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前后端分离计算器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <h1 class="title">前后端分离计算器</h1>
+        <p class="subtitle">Front-End &amp; Back-End Separation Calculator</p>
+
+        <!-- ========== 计算器主体 ========== -->
+        <div class="calculator">
+            <div class="display">
+                <div class="expression" id="expression">&nbsp;</div>
+                <div class="result" id="result">&nbsp;</div>
+                <div class="error-msg" id="errorMsg"></div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-func" data-value="C">C</button>
+                <button class="btn btn-func" data-value="backspace">⌫</button>
+                <button class="btn btn-func" data-value="(">(</button>
+                <button class="btn btn-func" data-value=")">)</button>
+
+                <button class="btn btn-num" data-value="7">7</button>
+                <button class="btn btn-num" data-value="8">8</button>
+                <button class="btn btn-num" data-value="9">9</button>
+                <button class="btn btn-op" data-value="/">÷</button>
+
+                <button class="btn btn-num" data-value="4">4</button>
+                <button class="btn btn-num" data-value="5">5</button>
+                <button class="btn btn-num" data-value="6">6</button>
+                <button class="btn btn-op" data-value="*">×</button>
+
+                <button class="btn btn-num" data-value="1">1</button>
+                <button class="btn btn-num" data-value="2">2</button>
+                <button class="btn btn-num" data-value="3">3</button>
+                <button class="btn btn-op" data-value="-">−</button>
+
+                <button class="btn btn-num" data-value="0">0</button>
+                <button class="btn btn-num" data-value=".">.</button>
+                <button class="btn btn-equal" data-value="=">=</button>
+                <button class="btn btn-op" data-value="+">+</button>
+            </div>
+
+            <p class="hint">提示：支持键盘输入数字与运算符，Enter 计算，Esc 清空</p>
+        </div>
+
+        <!-- ========== 计算历史 ========== -->
+        <div class="history">
+            <div class="history-header">
+                <h2>计算历史</h2>
+                <button class="btn-clear-all" id="clearAllBtn">清空历史</button>
+            </div>
+            <ul class="history-list" id="historyList">
+                <li class="history-empty">暂无计算记录</li>
+            </ul>
+        </div>
+
+        <p class="status" id="status"></p>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>

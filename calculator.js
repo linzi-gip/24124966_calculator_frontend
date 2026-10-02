@@ -83,7 +83,7 @@ async function calculate() {
         return;
     }
     try {
-        setStatus("正在请求后端计算…");
+        setStatus("Requesting calculation…");
         const response = await fetch(API_BASE + "/api/calculate", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -94,18 +94,18 @@ async function calculate() {
         if (data.success) {
             // 展示后端返回的结果
             resultEl.textContent = "= " + data.result;
-            setStatus("计算成功", "ok");
+            setStatus("Calculation succeeded", "ok");
             // 计算成功后刷新历史列表
             loadHistory();
         } else {
             resultEl.innerHTML = "&nbsp;";
-            errorMsgEl.textContent = "错误：" + (data.message || "计算失败");
-            setStatus("计算失败", "error");
+            errorMsgEl.textContent = "Error: " + (data.message || "calculation failed");
+            setStatus("Calculation failed", "error");
         }
     } catch (err) {
         resultEl.innerHTML = "&nbsp;";
-        errorMsgEl.textContent = "无法连接后端服务，请确认后端已启动";
-        setStatus("后端服务不可用", "error");
+        errorMsgEl.textContent = "Cannot connect to the backend. Please make sure the backend is running.";
+        setStatus("Backend unavailable", "error");
     }
 }
 
@@ -117,10 +117,10 @@ async function loadHistory() {
         if (data.success) {
             renderHistory(data.data);
         } else {
-            setStatus("获取历史失败", "error");
+            setStatus("Failed to fetch history", "error");
         }
     } catch (err) {
-        setStatus("无法连接后端服务", "error");
+        setStatus("Cannot connect to the backend.", "error");
     }
 }
 
@@ -128,7 +128,7 @@ async function loadHistory() {
 function renderHistory(records) {
     if (!records || records.length === 0) {
         historyListEl.innerHTML =
-            '<li class="history-empty">暂无计算记录</li>';
+            '<li class="history-empty">No calculation records</li>';
         return;
     }
     historyListEl.innerHTML = "";
@@ -159,7 +159,7 @@ function renderHistory(records) {
 
         const delBtn = document.createElement("button");
         delBtn.className = "btn-delete";
-        delBtn.title = "删除这条记录";
+        delBtn.title = "Delete this record";
         delBtn.textContent = "🗑";
         delBtn.addEventListener("click", function () {
             deleteHistory(record.id);
@@ -179,19 +179,19 @@ async function deleteHistory(id) {
         });
         const data = await response.json();
         if (data.success) {
-            setStatus("已删除记录 #" + id, "ok");
+            setStatus("Record #" + id + " deleted", "ok");
             loadHistory(); // 删除后按后端最新状态重新查询
         } else {
-            setStatus(data.message || "删除失败", "error");
+            setStatus(data.message || "Failed to delete the record", "error");
         }
     } catch (err) {
-        setStatus("无法连接后端服务", "error");
+        setStatus("Cannot connect to the backend.", "error");
     }
 }
 
 /** 清空全部历史记录 */
 async function clearAllHistory() {
-    if (!confirm("确定要清空全部计算历史吗？")) {
+    if (!confirm("Are you sure you want to clear all calculation history?")) {
         return;
     }
     try {
@@ -200,13 +200,13 @@ async function clearAllHistory() {
         });
         const data = await response.json();
         if (data.success) {
-            setStatus("已清空全部历史", "ok");
+            setStatus("All history cleared", "ok");
             loadHistory();
         } else {
-            setStatus(data.message || "清空失败", "error");
+            setStatus(data.message || "Failed to clear history", "error");
         }
     } catch (err) {
-        setStatus("无法连接后端服务", "error");
+        setStatus("Cannot connect to the backend.", "error");
     }
 }
 
